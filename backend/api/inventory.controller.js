@@ -12,13 +12,13 @@ export default class InventoryController {
             filters.count = req.query.count;
         } else if (req.query.name) {
             filters.name = req.query.name;
+        } else if (req.query.date) {
+            filters.date = req.query.date;
+        } else if (req.query.tags) {
+            filters.tags = req.query.tags;
         }
 
-        const { inventoryList, totalNumInventory } = await InventoryDAO.getInventory({
-            filters,
-            page,
-            inventoryPerPage,
-        });
+        const { inventoryList, totalNumInventory } = await InventoryDAO.getInventory({ filters, page, inventoryPerPage, });
 
         let response = {
             inventory: inventoryList,

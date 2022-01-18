@@ -31,6 +31,10 @@ export default class InventoryDAO {
                 query = { "count": { $eq: filters["count"] } };
             } else if ("price" in filters) {
                 query = { "price": { $eq: filters["price"] } };
+            } else if ("date" in filters) {
+                query = { "date": { $eq: filters["date"] } };
+            } else if ("tags" in filters) {
+                query = { "tags": filters["tags"] };
             }
             /*
             else if ("zipcode" in filters) {
