@@ -67,5 +67,14 @@ export default class InventoryDAO {
             return { inventoryList: [], totalNumInventory: 0 };
         }
     }
+
+    static async getInventoryById(_id) {
+        try {
+            const pipeline = [];
+
+        } catch(e) {
+
+        }
+    }
 }
 

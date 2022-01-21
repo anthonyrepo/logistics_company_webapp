@@ -29,4 +29,21 @@ export default class InventoryController {
         }
         res.json(response);
     }
+
+    static async apiGetInventoryById(req, res, next) {
+        try {
+            let _id = req.params._id || {};
+            let item = await InventoryDAO.getInventoryById(_id);
+
+            if (!item) {
+                res.status(404).json({ error: "Not found" });
+                return;
+            }
+
+            res.json(item)
+        } catch (e) {
+            console.log(`api, ${e}`);
+            res.status(500).json({ error: e });
+        }
+    }
 }

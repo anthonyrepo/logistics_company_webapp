@@ -5,6 +5,7 @@ import ChangeCtrl from "./change.controller.js"
 const router = express.Router();
 
 router.route("/").get(InventoryCtrl.apiGetInventory);
+router.route("/id").get(InventoryCtrl.apiGetInventoryById);
 
 router
     .route("/change")
