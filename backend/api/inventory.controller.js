@@ -32,7 +32,7 @@ export default class InventoryController {
 
     static async apiGetInventoryById(req, res, next) {
         try {
-            let _id = req.params._id || {};
+            let _id = req.params.id || {};
             let item = await InventoryDAO.getInventoryById(_id);
 
             if (!item) {

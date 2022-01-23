@@ -1,4 +1,5 @@
-import mongodb from "mongodb"
+import mongodb from "mongodb";
+const ObjectId = mongodb.ObjectId;
 
 let inventory;
 
@@ -70,10 +71,17 @@ export default class InventoryDAO {
 
     static async getInventoryById(_id) {
         try {
-            const pipeline = [];
-
+            const pipeline = [
+                {
+                    $match: {
+                        _id: new ObjectId(_id)
+                    }
+                }
+            ];
+            return await inventory.aggregate(pipeline).next()
         } catch(e) {
-
+            console.error(`Something went wrong in getInventoryByID: ${e}`);
+            throw e;
         }
     }
 }
