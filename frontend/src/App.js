@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AddInventory from './components/add-inventory.js'
@@ -26,6 +26,13 @@ function App() {
           </li>
         </div> */}
       </nav>
+
+      <div className="container mt-3">
+        <Routes>
+          <Route path={["/", "/inventory"]} element={<Inventory />} />
+          <Route path="/inventory/:id" />
+        </Routes>
+      </div>
     </div>
   );
 }
